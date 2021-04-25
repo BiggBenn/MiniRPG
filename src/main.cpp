@@ -1,13 +1,12 @@
 
 //system libs
-#include <cmath>
 
 //other libs
 #include "raylib.h"
 #include "raymath.h"
 
 //project includes
-
+#include "Scene.hpp"
 
 int main(void)
 {
@@ -21,24 +20,28 @@ int main(void)
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
 
+    Scene* currentScene = new Scene();
+
+
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         // Update
         //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
+        float delta = GetFrameTime();
+        currentScene->update(delta);
         //----------------------------------------------------------------------------------
 
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-        BeginMode2D();
 
         ClearBackground(RAYWHITE);
 
+        currentScene->draw();
+
         DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
-        EndMode2D();
         EndDrawing();
         //----------------------------------------------------------------------------------
     }

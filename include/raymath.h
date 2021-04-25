@@ -42,6 +42,7 @@
 /*
 * Modified by Benn to add some bindings. Don't worry about it. 
 */
+#include <cmath>
 
 #ifndef RAYMATH_H
 #define RAYMATH_H

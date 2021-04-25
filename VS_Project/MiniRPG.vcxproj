@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{e5b1bf12-7d1e-4b08-ac74-6a2beb80cf50}</ProjectGuid>
+    <ProjectGuid>{E1B57BF5-73C8-47DD-80A2-B5E9A28E1613}</ProjectGuid>
     <RootNamespace>ProjectTemplate</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>MiniRPG</ProjectName>
@@ -168,10 +168,14 @@
     <ProjectReference />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\include\GameObject.hpp" />
     <ClInclude Include="..\include\raymath.h" />
+    <ClInclude Include="..\include\Scene.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
