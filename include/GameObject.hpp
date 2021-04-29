@@ -3,13 +3,14 @@
 #define GAMEOBJECT_HPP
 
 //system libs
+#include <string>
 
 //other libs
 #include "raylib.h"
 #include "raymath.h"
 
 //project includes
-
+#include "AssetManager.hpp"
 
 enum ColliderType
 {
@@ -34,6 +35,9 @@ protected:
 
 	//
 	Vector2 velocity = { 0,0 };
+
+	//texture*path* of the object
+	std::string texturePath = "resources/defaultTexture.png";
 
 	//texture of object
 	Texture2D texture = { 0 };
@@ -70,7 +74,8 @@ public:
 	Vector2 GetVelocity();
 	void SetVelocity(Vector2 vel);
 
-
+	//both unregisters old texture and requests new one
+	void ChangeTexture(std::string path);
 };
 
 #endif
