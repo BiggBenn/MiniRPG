@@ -42,11 +42,15 @@ protected:
 	//texture of object
 	Texture2D texture = { 0 };
 
+	//source and destination rectangle for drawing
+	Rectangle sourceRect = { 0 };
+	Rectangle destRect = { 0 };
+
 	//rotation of the object, applied to the texture; 0 is pointing UP, 0 <= rot < 360
 	float rotation = 0;
 
-	//scale of the object
-	float scale = 1;
+	//size of the object
+	Vector2 size = { 100,100 };
 
 	//collider of this object
 	Collider collider = { None };
@@ -73,6 +77,10 @@ public:
 	//getset for velocity
 	Vector2 GetVelocity();
 	void SetVelocity(Vector2 vel);
+
+	//getset for size
+	Vector2 GetSize();
+	void SetSize(Vector2 dimensions);
 
 	//both unregisters old texture and requests new one
 	void ChangeTexture(std::string path);

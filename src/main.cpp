@@ -28,7 +28,7 @@ int main(void)
     {
         // Update
         //----------------------------------------------------------------------------------
-        float delta = GetFrameTime();
+        float delta = GetFrameTime() / 1000.0f;
         currentScene->update(delta);
         //----------------------------------------------------------------------------------
 
@@ -40,14 +40,13 @@ int main(void)
 
         currentScene->draw();
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
-
         EndDrawing();
         //----------------------------------------------------------------------------------
     }
 
     // De-Initialization
     //--------------------------------------------------------------------------------------
+    delete AssetManager::GetAssetManager(); //get rid of all loaded textures
     CloseWindow();        // Close window and OpenGL context
     //--------------------------------------------------------------------------------------
 

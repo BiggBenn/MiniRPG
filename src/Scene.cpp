@@ -3,6 +3,7 @@
 
 Scene::Scene()
 {
+	//set up the camera
 	camera.offset = { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
 	camera.target = { 0,0 };
 	camera.zoom = 1;
@@ -31,7 +32,7 @@ void Scene::Initialize()
 	GameObject* obj = new GameObject(ColliderType::None);
 	all_objects.push_back(obj);
 	obj->SetPosition({ 0,0 });
-	obj->SetVelocity({ 1,1 });
+	//obj->SetVelocity({ -100,-100 });
 }
 
 void Scene::update(float delta)
@@ -46,9 +47,6 @@ void Scene::draw()
 {
 	//Tell raylib that we're gonna use the 2D mode
 	BeginMode2D(camera);
-
-	DrawLineV({ -1000, -1000 }, { 1000, 1000 }, BLACK);
-	DrawLineV({ -1000, 1000 }, { 1000, -1000 }, BLACK);
 
 	for (GameObject* obj : all_objects)
 	{
