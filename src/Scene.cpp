@@ -29,10 +29,15 @@ void Scene::Initialize()
 	AssetManager::GetAssetManager()->RequestTexture("resources/defaultTexture.png");
 
 	//create a test object 
-	GameObject* obj = new GameObject(ColliderType::None);
+	GameObject* obj = new GameObject();
 	all_objects.push_back(obj);
-	obj->SetPosition({ 0,0 });
+	obj->SetPosition({ 100,20 });
 	//obj->SetVelocity({ -100,-100 });
+	obj->SetCollider({ Circle, {0}, 50 });
+
+	//spawn the player
+	Player* player = new Player(this);
+	all_objects.push_back(player);
 }
 
 void Scene::update(float delta)
@@ -54,4 +59,19 @@ void Scene::draw()
 	}
 
 	EndMode2D();
+}
+
+
+void Scene::GetNearbyObjects(Vector2 coordinates, float range, std::vector<GameObject*>* outputVector)
+{
+	//Like said in function description, this will use the naive approach of iterating through all objects. This should be fine, as only the player really wants to know
+	//where other things are, and there aren't all that many of them. Most likely not worth the overhead of a quadrant system
+	float rangesquared = range * range;
+	for (GameObject* gobj : all_objects)
+	{
+		if (Vector2LengthSquared(gobj->GetPosition() - coordinates) < rangesquared)
+		{
+			outputVector->push_back(gobj);
+		}
+	}
 }

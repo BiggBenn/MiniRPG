@@ -1,10 +1,8 @@
 #include "GameObject.hpp"
 
 
-GameObject::GameObject(ColliderType collisionType)
+GameObject::GameObject()
 {
-	collider.type = collisionType;
-
 	texture = AssetManager::GetAssetManager()->RequestTexture(texturePath);
 	sourceRect.width = texture.width;
 	sourceRect.height = texture.height;
@@ -80,4 +78,23 @@ void GameObject::ChangeTexture(std::string path)
 	sourceRect.y = 0;
 	sourceRect.width = texture.width;
 	sourceRect.height = texture.height;
+}
+
+bool GameObject::CheckFlags(uint8_t flags)
+{
+	return typeFlags & flags;
+}
+
+Collider GameObject::GetCollider()
+{
+	return collider;
+}
+
+void GameObject::SetCollider(Collider coll)
+{
+	collider = coll;
+	if (collider.type != ColliderType::None)
+	{
+		typeFlags |= TypeFlag::Collision;
+	}
 }

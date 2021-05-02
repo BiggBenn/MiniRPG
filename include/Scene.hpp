@@ -1,4 +1,8 @@
 #pragma once
+
+//forward declaration
+class Scene;
+
 #ifndef SCENE_HPP
 #define SCENE_HPP
 
@@ -9,6 +13,7 @@
 
 //project includes
 #include "GameObject.hpp"
+#include "Player.hpp"
 
 class Scene
 {
@@ -36,6 +41,10 @@ public:
 
 	//draw all of the objects
 	void draw();
+
+	//returns objects who's position is within range of the given coordinates
+	//if this is slow, implement SQS system from your other repo, but since this small game won't have more than a hundred or so objects and only the player will really ask for nearby objects, naive should be ok
+	void GetNearbyObjects(Vector2 coordinates, float range, std::vector<GameObject*>* outputVector);
 };
 
 #endif

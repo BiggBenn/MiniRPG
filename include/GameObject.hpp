@@ -1,4 +1,8 @@
 #pragma once
+
+//forward decl
+//class GameObject;
+
 #ifndef GAMEOBJECT_HPP
 #define GAMEOBJECT_HPP
 
@@ -10,7 +14,8 @@
 #include "raymath.h"
 
 //project includes
-#include "AssetManager.hpp"
+#include "AssetManager.hpp"	
+#include "TypeFlags.hpp"
 
 enum ColliderType
 {
@@ -29,6 +34,8 @@ struct Collider
 class GameObject
 {
 protected:
+	//type of this object, so other objects can more easily identify them from just a GameObject* pointer
+	uint8_t typeFlags = 0b00000000;
 
 	//
 	Vector2 position = { 0,0 };
@@ -59,13 +66,13 @@ protected:
 public:
 
 	//constructor
-	GameObject(ColliderType collisionType);
+	GameObject();
 
 	//destructor
 	~GameObject();
 
 	//update function, delta is time passed since last frame
-	void update(float delta);
+	virtual void update(float delta);
 
 	//drawing function
 	void draw();
@@ -84,6 +91,13 @@ public:
 
 	//both unregisters old texture and requests new one
 	void ChangeTexture(std::string path);
+
+	//checks whether this object has the flags requested
+	bool CheckFlags(uint8_t flags);
+
+	//Getset for collider
+	Collider GetCollider();
+	void SetCollider(Collider coll);
 };
 
 #endif

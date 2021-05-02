@@ -172,19 +172,28 @@
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
+    <ClCompile Include="..\src\InteractableObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\AssetManager.hpp" />
     <ClInclude Include="..\include\GameObject.hpp" />
+    <ClInclude Include="..\include\InteractableObject.hpp" />
+    <ClInclude Include="..\include\Player.hpp" />
     <ClInclude Include="..\include\raymath.h" />
     <ClInclude Include="..\include\Scene.hpp" />
+    <ClInclude Include="..\include\TypeFlags.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\raylib.dll">
       <DeploymentContent>true</DeploymentContent>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\defaultTexture.png" />
+    <Image Include="..\resources\player.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -33,6 +33,12 @@
     <ClCompile Include="..\src\AssetManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\raymath.h">
@@ -47,10 +53,27 @@
     <ClInclude Include="..\include\AssetManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\Player.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TypeFlags.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\InteractableObject.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\raylib.dll">
       <Filter>StuffToCopy</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\defaultTexture.png">
+      <Filter>StuffToCopy\Resources</Filter>
+    </Image>
+    <Image Include="..\resources\player.png">
+      <Filter>StuffToCopy\Resources</Filter>
+    </Image>
   </ItemGroup>
 </Project>
