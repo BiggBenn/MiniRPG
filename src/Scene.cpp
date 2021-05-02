@@ -35,6 +35,18 @@ void Scene::Initialize()
 	//obj->SetVelocity({ -100,-100 });
 	obj->SetCollider({ Circle, {0}, 50 });
 
+	GameObject* obj2 = new GameObject();
+	all_objects.push_back(obj2);
+	obj2->SetPosition({ -200, -50 });
+	obj2->SetCollider({ Rect, {0,0,100,100}, 0 });
+
+	GameObject* obj3 = new GameObject();
+	all_objects.push_back(obj3);
+	obj3->SetPosition({ -200, -50 });
+	obj3->SetSize({ 300,50 });
+	obj3->SetCollider({ Rect, {0,0,300,50}, 0 });
+
+
 	//spawn the player
 	Player* player = new Player(this);
 	all_objects.push_back(player);

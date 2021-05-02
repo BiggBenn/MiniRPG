@@ -29,6 +29,10 @@ protected:
 
 	//calculates the correctional movement of a single collision
 	Vector2 collide(GameObject* otherObj);
+
+	Vector2 CtoCCollision(Vector2 distance, float radius1, float radius2);
+
+	Vector2 CtoRCollision(Vector2 distance, float radius, Rectangle rect);
 public:
 
 	Player(Scene* owner);

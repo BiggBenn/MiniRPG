@@ -98,3 +98,13 @@ void GameObject::SetCollider(Collider coll)
 		typeFlags |= TypeFlag::Collision;
 	}
 }
+
+float GameObject::GetRotation()
+{
+	return rotation;
+}
+
+void GameObject::SetRotation(float rot)
+{
+	rotation = rot;
+}

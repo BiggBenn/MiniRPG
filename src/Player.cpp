@@ -100,29 +100,133 @@ Vector2 Player::collide(GameObject* otherObj)
 	//Circle to circle collision
 	if (collider.type == ColliderType::Circle && otherCollider.type == ColliderType::Circle)
 	{
-		//calculate the overlap of the circles
-		float overlap = distance - collider.radius - otherCollider.radius; 
-		if (overlap < 0)
-		{
-			//move the player away by the overlap
-			result = Vector2Normalize(differenceVector) * overlap;
-		}
-		return result;
+		return CtoCCollision(differenceVector, collider.radius, otherCollider.radius);
 	}
 	//circle to rectangle collision
 	else if (collider.type == ColliderType::Circle && otherCollider.type == ColliderType::Rect)
 	{
-		
+		return CtoRCollision(differenceVector, collider.radius, otherCollider.rect);
 	}
 	//rect to circle collision
 	else if (collider.type == ColliderType::Rect && otherCollider.type == ColliderType::Circle)
 	{
-
+		//not going to happen since player only has circle collider, otherwise just a reverse copy of the one above
 	}
 	//rect to rect collision
 	else if (collider.type == ColliderType::Rect && otherCollider.type == ColliderType::Rect)
 	{
+		//not going to happen since player only has circle collider
+	}
+}
 
+Vector2 Player::CtoCCollision(Vector2 distance, float radius1, float radius2)
+{
+	//calculate the overlap of the circles
+	float overlap = Vector2Length(distance) - radius1 - radius2;
+	if (overlap < 0)
+	{
+		//move the player away by the overlap
+		return Vector2Normalize(distance) * overlap;
+	}
+	return Vector2Zero();
+}
+
+
+
+Vector2 Player::CtoRCollision(Vector2 distance, float radius, Rectangle rect)
+{
+	Vector2 result = { 0,0 };
+
+	//circle is above/in/below the middle section of the rectangle
+	if (distance.x > -rect.width / 2 && distance.x < rect.width / 2)
+	{
+		//above center
+		if (distance.y > 0)
+		{
+			//calculate overlap
+			float overlap = abs(distance.y) - rect.height / 2 - collider.radius;
+			if (overlap < 0)
+			{
+				//move away from center box in the opposite direction from the approach vector
+				result.y = overlap;
+			}
+		}
+		//below center
+		else
+		{
+			float overlap = abs(distance.y) - rect.height / 2 - collider.radius;
+			if (overlap < 0)
+			{
+				result.y = -overlap;
+			}
+		}
+	}
+	//circle is left/in/right of the middle section of the rectangle
+	else if (distance.y > -rect.height / 2 && distance.y < rect.height / 2)
+	{
+		//right of center
+		if (distance.x < 0)
+		{
+			float overlap = abs(distance.x) - rect.width / 2 - collider.radius;
+			if (overlap < 0)
+			{
+				result.x = -overlap;
+			}
+		}
+		//left of center
+		else
+		{
+			float overlap = abs(distance.x) - rect.width / 2 - collider.radius;
+			if (overlap < 0)
+			{
+				result.x = overlap;
+			}
+		}
+	}
+	//the corner cases
+	else
+	{
+		//set up modifier vector to reach the corners from the center of the rectangle
+		Vector2 mod;
+
+		//top corners
+		if (distance.y > 0)
+		{
+			//top left corner
+			if (distance.x < 0)
+			{
+				//The modifier just ensures that distance + mod points from the player coordinates to the coordinates of the *corner* of the rectangle
+				mod.x = rect.width / 2;
+				mod.y = -rect.height / 2;
+				return CtoCCollision(distance + mod, 0, radius);
+			}
+			//top right corner
+			else
+			{
+				mod.x = -rect.width / 2;
+				mod.y = -rect.height / 2;
+				return CtoCCollision(distance + mod, 0, radius);
+			}
+		}
+		//bottom corners
+		else
+		{
+			//bottom left corner
+			if (distance.x < 0)
+			{
+				mod.x = rect.width / 2;
+				mod.y = rect.height / 2;
+				return CtoCCollision(distance + mod, 0, radius);
+			}
+			//bottom right corner
+			else
+			{
+				mod.x = -rect.width / 2;
+				mod.y = rect.height / 2;
+				return CtoCCollision(distance + mod, 0, radius);
+			}
+		}
 	}
 
+	return result;
 }

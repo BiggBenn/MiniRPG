@@ -98,6 +98,10 @@ public:
 	//Getset for collider
 	Collider GetCollider();
 	void SetCollider(Collider coll);
+
+	//Getset for rotation
+	float GetRotation();
+	void SetRotation(float rot);
 };
 
 #endif
