@@ -172,7 +172,6 @@
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
-    <ClCompile Include="..\src\InteractableObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />

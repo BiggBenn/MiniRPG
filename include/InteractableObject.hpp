@@ -10,9 +10,7 @@ class InteractableObject : public GameObject
 protected:
 
 public:
-	InteractableObject();
-
-	virtual void interact();
+	virtual void interact() = 0;
 };
 
 #endif
