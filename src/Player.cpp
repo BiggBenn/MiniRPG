@@ -111,12 +111,16 @@ Vector2 Player::collide(GameObject* otherObj)
 	else if (collider.type == ColliderType::Rect && otherCollider.type == ColliderType::Circle)
 	{
 		//not going to happen since player only has circle collider, otherwise just a reverse copy of the one above
+		return result;
 	}
 	//rect to rect collision
 	else if (collider.type == ColliderType::Rect && otherCollider.type == ColliderType::Rect)
 	{
 		//not going to happen since player only has circle collider
+		return result;
 	}
+
+	return result;
 }
 
 Vector2 Player::CtoCCollision(Vector2 distance, float radius1, float radius2)

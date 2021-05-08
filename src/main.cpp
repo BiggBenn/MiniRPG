@@ -7,6 +7,7 @@
 
 //project includes
 #include "Scene.hpp"
+#include "SceneManager.hpp"
 
 int main(void)
 {
@@ -19,8 +20,8 @@ int main(void)
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
-
-    Scene* currentScene = new Scene();
+    SceneManager* scenes = SceneManager::GetSceneManager();
+    scenes->AddScene( new Scene());
 
 
     // Main game loop
@@ -29,7 +30,7 @@ int main(void)
         // Update
         //----------------------------------------------------------------------------------
         float delta = GetFrameTime();
-        currentScene->update(delta);
+        scenes->update(delta);
         //----------------------------------------------------------------------------------
 
         // Draw
@@ -38,7 +39,7 @@ int main(void)
 
         ClearBackground(RAYWHITE);
 
-        currentScene->draw();
+        scenes->draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

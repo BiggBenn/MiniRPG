@@ -175,6 +175,7 @@
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
+    <ClCompile Include="..\src\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\AssetManager.hpp" />
@@ -183,6 +184,8 @@
     <ClInclude Include="..\include\Player.hpp" />
     <ClInclude Include="..\include\raymath.h" />
     <ClInclude Include="..\include\Scene.hpp" />
+    <ClInclude Include="..\include\SceneManager.hpp" />
+    <ClInclude Include="..\include\StoryProgress.hpp" />
     <ClInclude Include="..\include\TypeFlags.hpp" />
   </ItemGroup>
   <ItemGroup>
