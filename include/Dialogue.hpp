@@ -4,12 +4,13 @@
 
 #include "raylib.h"
 #include "string"
+#include "vector"
 
 enum DgState {
 	OPENING,
 	CLOSING,
 	OPEN,
-	CLOSED,
+	CLOSED
 };
 
 class Dialogue  
@@ -38,8 +39,13 @@ class Dialogue
 		double 		charDelay		= 0.025;	//Delay in seconds
 
 		DgState		state			= CLOSED;	//Dialogue state
+		DgState		nextState		= OPEN;		//Dialogue state after transition
 		float		openPercentage	= 0.0f;		//Animation control
 		float		animationSpeed	= 0.1f;		//how much the animation proceeds every *frame*
+
+		bool		optionsShown	= false;	//Whether dialogue is in options mode
+		std::vector<std::string> options;		//Options rendered
+		int*		optionDest		= nullptr;	//Where to store the answer
 
 	public:
 
@@ -54,6 +60,7 @@ class Dialogue
 		void update();
 
 		void typeText(std::string content, std::string name = "");
+		void showOptions(std::string content, std::vector<std::string> options, int* destination, std::string name = "");
 
 		void hide();
 		void show();

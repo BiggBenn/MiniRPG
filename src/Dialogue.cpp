@@ -58,12 +58,22 @@ Dialogue::~Dialogue()
 void Dialogue::draw() 
 {
     if (state == OPEN) {
+
         DrawTextureNPatch(nPatchTexture, nPatchInfo, destRectangle, Vector2Zero(), 0.0f, windowDrawColorFilter);
         if  (!speakerName.empty())  {
             DrawTextureNPatch(nPatchTextureNametag, nPatchInfoNametag, nametagRectangle, Vector2Zero(), 0.0f, WHITE);
             DrawTextRec(speakerNameFont, speakerName.c_str(), nametagTextRectangle, speakerFontSize, 4, false, WHITE);
         }
         DrawTextRec(contentFont, targetText.substr(0, textPosition).c_str(), destTextRectangle, contentFontSize, 4, true, WHITE);
+
+        if (optionsShown && textPosition >= targetText.size()){
+            for (int i = 0; i < options.size(); i++) {
+                int offset = options.size() * contentFontSize;
+                Rectangle test = {destTextRectangle.x, destTextRectangle.y + destTextRectangle.height - offset + (float)i * (float)contentFontSize, destTextRectangle.width, (float)contentFontSize};
+                if(i == *optionDest) DrawTextRec(contentFont, (">" + options[i]).c_str(), test, contentFontSize, 4, false, YELLOW);
+                else DrawTextRec(contentFont, options[i].c_str(), test, contentFontSize, 4, false, WHITE);
+            }
+        }
     }
 
     if (state == OPENING || state == CLOSING) {
@@ -89,6 +99,13 @@ void Dialogue::update()
         }
     }
 
+    if (optionsShown) {
+        if(optionDest != nullptr){
+            if (IsKeyPressed(KEY_DOWN)) *optionDest = std::min(*optionDest + 1, (int)options.size() - 1);
+            else if (IsKeyPressed(KEY_UP)) *optionDest = std::max(*optionDest - 1, 0);
+        }
+    }
+
     if (state == OPENING) {
         openPercentage = std::min(openPercentage + animationSpeed, 1.0f);
         if (openPercentage >= 1.0f) state = OPEN;
@@ -110,6 +127,17 @@ void Dialogue::typeText(std::string content, std::string name)
     if (!speakerName.empty()) {
         nametagRectangle.width = MeasureTextEx(contentFont, speakerName.c_str(), speakerFontSize, 4).x + nametagTextInset*2;
     }
+
+    optionsShown = false;
+}
+
+void Dialogue::showOptions(std::string content, std::vector<std::string> options, int* destination, std::string name) 
+{
+    typeText(content, name);
+    this->options = options;
+    optionsShown = true;
+    optionDest = destination;
+    *optionDest = 0;
 }
 
 void Dialogue::hide() 

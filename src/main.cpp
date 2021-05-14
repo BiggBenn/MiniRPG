@@ -42,6 +42,8 @@ int main(void)
     bool dShow = false;
     dialogue->hide();
 
+    int answer = -1;
+
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
@@ -60,9 +62,32 @@ int main(void)
             }
         }
 
+        if (IsKeyPressed(KEY_L)) {
+            dialogue->show();
+            dialogue->showOptions("What do you want?", {"Nothing", "Something", "Something Else"}, &answer, "Clarissa");
+            dShow = true;
+        }
+
         if (dShow && IsKeyPressed(KEY_M)) {
-            dialogueCounter = (dialogueCounter + 1) % textCount;
-            dialogue->typeText(texts[dialogueCounter], "Clarissa");
+            if(answer == 0) {
+                dialogue->typeText("Fine, as you wish...", "Clarissa");
+                answer = -2;
+            }else if (answer == 1) {
+                dialogue->typeText("I don't have this 'Something' you speak of", "Clarissa");
+                answer = -2;
+            }else if (answer == 2) {
+                dialogue->typeText("Don't we all?", "Clarissa");
+                answer = -2;
+            }else if (answer == -2) {
+                answer = -1;
+                dShow = false;
+                dialogue->hide();
+                dialogueCounter = 0;
+                dialogue->typeText(texts[dialogueCounter], "Clarissa");
+            }else{
+                dialogueCounter = (dialogueCounter + 1) % textCount;
+                dialogue->typeText(texts[dialogueCounter], "Clarissa");
+            }
         }
 
         dialogue->update();
