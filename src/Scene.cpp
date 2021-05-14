@@ -1,5 +1,6 @@
 #include "Scene.hpp"
 
+#include "Egg.hpp"
 
 Scene::Scene()
 {
@@ -28,7 +29,7 @@ void Scene::Initialize()
 	//load default texture, no reason not to have it in vram
 	AssetManager::GetAssetManager()->RequestTexture("resources/defaultTexture.png");
 
-	//create a test object 
+	/*//create a test object 
 	GameObject* obj = new GameObject();
 	all_objects.push_back(obj);
 	obj->SetPosition({ 100,20 });
@@ -44,20 +45,43 @@ void Scene::Initialize()
 	all_objects.push_back(obj3);
 	obj3->SetPosition({ -200, -50 });
 	obj3->SetSize({ 300,50 });
-	obj3->SetCollider({ Rect, {0,0,300,50}, 0 });
+	obj3->SetCollider({ Rect, {0,0,300,50}, 0 });*/
 
 
 	//spawn the player
 	Player* player = new Player(this);
 	all_objects.push_back(player);
+
+	//SPAWN EGG
+	for (int i = 0; i < StoryProgress::goalEggCount; i++)
+	{
+		Egg* egg = new Egg();
+		all_objects.push_back(egg);
+		egg->SetPosition({ (float)GetRandomValue(-400, 400), (float)GetRandomValue(-300,300) });
+		egg->SetSize({ 30,50 });
+	}
 }
 
 void Scene::update(float delta)
 {
+	std::vector<GameObject*> toDelete;
 	for (GameObject* obj : all_objects)
 	{
 		obj->update(delta);
+		//note if the object has its delete flag set
+		if (obj->DeleteFlag)
+		{
+			toDelete.push_back(obj);
+		}
 	}
+
+	for (GameObject* obj : toDelete)
+	{
+		//delete both the object and the reference in all_objects
+		delete obj;
+		all_objects.erase(std::remove(all_objects.begin(), all_objects.end(), obj), all_objects.end());
+	}
+	toDelete.clear();
 }
 
 void Scene::draw()

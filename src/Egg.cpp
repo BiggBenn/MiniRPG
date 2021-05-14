@@ -1,0 +1,21 @@
+#include "Egg.hpp"
+
+Egg::Egg()
+{
+	//tag this object as interactable
+	typeFlags |= TypeFlag::Interactable;
+
+	//Load up the egg texture
+	ChangeTexture("resources/egg.png");
+}
+
+Egg::~Egg()
+{
+
+}
+
+void Egg::interact()
+{
+	StoryProgress::eggsCollected += 1;
+	DeleteFlag = true;
+}
