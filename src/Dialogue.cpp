@@ -151,3 +151,8 @@ void Dialogue::show()
     lastCharTime = GetTime();
     state = OPENING;
 }
+
+bool Dialogue::isShown() 
+{
+    return state == OPEN;
+}

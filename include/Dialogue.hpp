@@ -65,5 +65,7 @@ class Dialogue
 		void hide();
 		void show();
 
+		bool isShown();
+
 };
 #endif
