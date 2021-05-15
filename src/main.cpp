@@ -27,8 +27,13 @@ int main(void)
     Texture2D RAM = LoadTexture("resources/portrait-2.png");
 
     DialogueBuilder* db = new DialogueBuilder();
-    DialogueExecutor executor = db->start().construct({
-        db->line("You wake up, and see two colorful figures...")
+    DialogueExecutor* executor = db->start().construct({
+        db->line("You wake up, and see two colorful figures..."),
+        db->line({REM}, "Rem", "Sister, Sister..."),
+        db->line({REM}, "Rem", "How are you?"),
+        db->line({RAM, true}, "Ram", "Rem, Rem..."),
+        db->line({RAM, true}, "Ram", "I'm good today"),
+        db->line("You decide to go back to sleep...")
     });
 
     // Main game loop
@@ -39,10 +44,10 @@ int main(void)
         float delta = GetFrameTime();
 
         if (IsKeyPressed(KEY_ENTER)) {
-            executor.next();
+            executor->next();
         }
 
-        executor.update();
+        executor->update();
         scenes->update(delta);
         //----------------------------------------------------------------------------------
 
@@ -53,7 +58,7 @@ int main(void)
         ClearBackground(RAYWHITE);
 
         scenes->draw();
-        executor.draw();
+        executor->draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

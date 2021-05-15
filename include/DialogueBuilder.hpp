@@ -27,7 +27,8 @@ class DialogueBuilder {
     DialogueBuilder& start();
 
     //Main way of constructing a Dialogue with an executor
-    DialogueExecutor& construct(std::vector<int> nodes);
+    //The user is responsible for freeing this pointer when it's no longer needed.
+    DialogueExecutor* construct(std::vector<int> nodes);
 
     //Show a single line of dialogue with an optional name tag and a portrait
     int line(std::string text);

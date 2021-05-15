@@ -65,7 +65,7 @@ int DialogueBuilder::choice(bool showPortrait, PortraitDefinition portrait, std:
     return newId;
 }
 
-DialogueExecutor& DialogueBuilder::construct(std::vector<int> nodes) {
+DialogueExecutor* DialogueBuilder::construct(std::vector<int> nodes) {
         for (int i = 0; i < nodes.size(); i++){
             if (i < nodes.size() - 1) {
                 if(executor->content[nodes[i]].items == 0){
@@ -74,7 +74,7 @@ DialogueExecutor& DialogueBuilder::construct(std::vector<int> nodes) {
                 }
             }
         }
-        return *executor;
+        return executor;
     }
 
 int DialogueBuilder::line(std::string text) {
