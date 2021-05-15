@@ -102,6 +102,9 @@ public:
 	//Getset for rotation
 	float GetRotation();
 	void SetRotation(float rot);
+
+	//Delete flag, if true the object will be deleted after the update cycle
+	bool DeleteFlag = false;
 };
 
 #endif

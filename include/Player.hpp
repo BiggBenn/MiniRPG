@@ -14,7 +14,7 @@ protected:
 	float speed = 100;
 
 	//
-	float interactionRange = 250;
+	float interactionRange = 50;
 
 	//
 	float collisionRange = 2000;
