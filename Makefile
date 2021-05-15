@@ -9,7 +9,7 @@ INCLUDES = -Iinclude
 INCLUDES_LINUX = $(INCLUDES) -Llib
 INCLUDES_WIN = $(INCLUDES) -Iraylib32/include/ -Lraylib32/lib/
 
-OBJS:=main.o GameObject.o Player.o Scene.o SceneManager.o AssetManager.o Dialogue.o
+OBJS:=main.o GameObject.o Player.o Scene.o SceneManager.o AssetManager.o Dialogue.o DialogueExecutor.o DialogueBuilder.o
 OBJ_DEPS = $(patsubst %,$(OBJ_DIR)/%,$(OBJS))
 
 build: linux

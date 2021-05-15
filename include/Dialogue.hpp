@@ -28,6 +28,11 @@ class Dialogue
 		Rectangle	nametagTextRectangle;		//Rectangle for drawing the text in the speaker name tag
 		float		nametagTextInset	= 8.0f;	//Margin applied to all the sides of the rectangle to get the text rectangle
 
+		Texture2D	portrait;					//Square portrait to show, it scales automatically to match
+		Rectangle 	portraitSourceRectangle;	//Source for the entire image
+		Rectangle 	portraitRectangle;			//Rectangle for drawing the portrait
+		bool		showPortrait = false;		//Whether the portrait is drawn
+
 		int			contentFontSize	= 24;		//the font size used for the content text
 		int			speakerFontSize	= 18;		//the font size used for the speaker name text
 		Font		contentFont;				//the font used for writting to the dialogue box
@@ -61,6 +66,8 @@ class Dialogue
 
 		void typeText(std::string content, std::string name = "");
 		void showOptions(std::string content, std::vector<std::string> options, int* destination, std::string name = "");
+		void setPortrait(Texture2D texture, bool flipped = false);
+		void unsetPortrait();
 
 		void hide();
 		void show();

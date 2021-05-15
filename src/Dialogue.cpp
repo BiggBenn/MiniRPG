@@ -44,6 +44,10 @@ Dialogue::Dialogue(float height, float margin)
                             100 - inset,
                             nametagRectangle.height - inset};
 
+    float portraitSize = 192;
+    portraitSourceRectangle = {0, 0, 0, 0};
+    portraitRectangle = {destRectangle.x, destRectangle.y - portraitSize, portraitSize, portraitSize};
+
     targetText = "";
     lastCharTime = 0;
     charDelay = 0.025;
@@ -58,6 +62,10 @@ Dialogue::~Dialogue()
 void Dialogue::draw() 
 {
     if (state == OPEN) {
+
+        if (showPortrait) {
+            DrawTexturePro(portrait, portraitSourceRectangle, portraitRectangle, {0, 0},0, WHITE);
+        }
 
         DrawTextureNPatch(nPatchTexture, nPatchInfo, destRectangle, Vector2Zero(), 0.0f, windowDrawColorFilter);
         if  (!speakerName.empty())  {
@@ -80,6 +88,11 @@ void Dialogue::draw()
         Rectangle animRectangle = destRectangle;
         animRectangle.height = destRectangle.height * openPercentage;
         animRectangle.y += destRectangle.height - animRectangle.height;
+        if (showPortrait) {
+            Rectangle portraitAnimRectangle = portraitRectangle;
+            portraitAnimRectangle.y = animRectangle.y - portraitRectangle.height;
+            DrawTexturePro(portrait, portraitSourceRectangle, portraitAnimRectangle, {0, 0}, 0, ColorAlpha(WHITE, openPercentage));
+        }
         DrawTextureNPatch(nPatchTexture, nPatchInfo, animRectangle, Vector2Zero(), 0.0f, windowDrawColorFilter);
     }
 }
@@ -138,6 +151,21 @@ void Dialogue::showOptions(std::string content, std::vector<std::string> options
     optionsShown = true;
     optionDest = destination;
     *optionDest = 0;
+}
+
+void Dialogue::setPortrait(Texture2D texture, bool flipped) 
+{
+    portrait = texture;
+    portraitSourceRectangle.width = flipped ? -texture.width : texture.width;
+    portraitSourceRectangle.height = texture.height;
+    showPortrait = true;
+
+    portraitRectangle.x = destTextRectangle.x + (destTextRectangle.width - portraitRectangle.width ) * flipped;
+}
+
+void Dialogue::unsetPortrait() 
+{
+    showPortrait = false;
 }
 
 void Dialogue::hide() 
