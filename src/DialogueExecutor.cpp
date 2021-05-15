@@ -3,6 +3,7 @@
 DialogueExecutor::DialogueExecutor()
 {
 	dialogue = new Dialogue();
+    content.push_back({NOP, "NOP", "", 1, {1}});
 }
 	
 DialogueExecutor::~DialogueExecutor()

@@ -9,7 +9,7 @@
  **/
 class DialogueBuilder {
     private:
-    DialogueExecutor executor;
+    DialogueExecutor* executor;
     std::vector<int> looseEnds;
 
     void identifyLooseEnds(std::vector<int> nodes);
@@ -21,6 +21,10 @@ class DialogueBuilder {
 
     DialogueBuilder();
     virtual ~DialogueBuilder();
+
+    //Every new construction needs to start with a start() call
+    //so DialogueBuilder->start().construct(...)
+    DialogueBuilder& start();
 
     //Main way of constructing a Dialogue with an executor
     DialogueExecutor& construct(std::vector<int> nodes);

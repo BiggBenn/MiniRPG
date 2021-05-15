@@ -25,15 +25,10 @@ int main(void)
 
     Texture2D REM = LoadTexture("resources/portrait-1.png");
     Texture2D RAM = LoadTexture("resources/portrait-2.png");
+
     DialogueBuilder* db = new DialogueBuilder();
-    DialogueExecutor executor = db->construct({
-        db->nop(),
-        db->line("You wake up, and see two colorful figures..."),
-        db->line({REM}, "Rem", "Sister, Sister..."),
-        db->line({REM}, "Rem", "How are you?"),
-        db->line({RAM, true}, "Ram", "Rem, Rem..."),
-        db->line({RAM, true}, "Ram", "I'm good today"),
-        db->line("You decide to go back to sleep...")
+    DialogueExecutor executor = db->start().construct({
+        db->line("You wake up, and see two colorful figures...")
     });
 
     // Main game loop
