@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef MINIGAMESCENE_HPP
+#define MINIGAMESCENE_HPP
+
 #include <functional>
 
 #include "Scene.hpp"
@@ -27,3 +30,4 @@ public:
 	virtual void failure();
 };
 
+#endif
