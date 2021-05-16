@@ -42,6 +42,15 @@
     <ClCompile Include="..\src\Egg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\Weed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MiniGameScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\ButtonMashScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\raymath.h">
@@ -72,6 +81,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\Egg.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\Weed.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\MiniGameScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ButtonMashScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

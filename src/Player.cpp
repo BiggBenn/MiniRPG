@@ -42,7 +42,7 @@ void Player::update(float delta)
 	handleCollisions();
 
 	//Interaction
-	if (IsKeyDown(KEY_SPACE))
+	if (IsKeyPressed(KEY_SPACE))
 	{
 		interact();
 	}
@@ -62,6 +62,9 @@ void Player::interact()
 		{
 			InteractableObject* iobj = (InteractableObject*)gobj;
 			iobj->interact();
+
+			//return to make sure the player only interacts with a single object per button press
+			return;
 		}
 	}
 }
