@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef EGG_HPP
+#define EGG_HPP
+
 #include "InteractableObject.hpp"
 #include "StoryProgress.hpp"
 
@@ -13,3 +16,4 @@ public:
 	void interact() override;
 };
 
+#endif

@@ -1,6 +1,7 @@
 #include "Scene.hpp"
 
 #include "Egg.hpp"
+#include "Weed.hpp"
 
 Scene::Scene()
 {
@@ -9,8 +10,6 @@ Scene::Scene()
 	camera.target = { 0,0 };
 	camera.zoom = 1;
 
-	//call initializer that children will overwrite
-	Initialize();
 }
 
 Scene::~Scene()
@@ -60,6 +59,11 @@ void Scene::Initialize()
 		egg->SetPosition({ (float)GetRandomValue(-400, 400), (float)GetRandomValue(-300,300) });
 		egg->SetSize({ 30,50 });
 	}
+
+	//spawn weed
+	Weed* weed = new Weed();
+	all_objects.push_back(weed);
+	weed->SetPosition({ 0100, 100 });
 }
 
 void Scene::update(float delta)

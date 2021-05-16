@@ -33,14 +33,14 @@ public:
 	//destructor
 	~Scene();
 
-	//initializer intended for children to overwrite
+	//initializer intended for children to overwrite, called from SceneManager on Add
 	virtual void Initialize();
 
 	//update all objects
-	void update(float delta);
+	virtual void update(float delta);
 
 	//draw all of the objects
-	void draw();
+	virtual void draw();
 
 	//returns objects who's position is within range of the given coordinates
 	//if this is slow, implement SQS system from your other repo, but since this small game won't have more than a hundred or so objects and only the player will really ask for nearby objects, naive should be ok

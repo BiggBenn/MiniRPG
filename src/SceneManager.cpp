@@ -21,6 +21,7 @@ SceneManager* SceneManager::GetSceneManager()
 void SceneManager::AddScene(Scene* scene)
 {
 	scenes.push_back(scene);
+	scene->Initialize();
 }
 
 void SceneManager::PopScene()
