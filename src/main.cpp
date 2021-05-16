@@ -33,7 +33,12 @@ int main(void)
         db->line({REM}, "Rem", "How are you?"),
         db->line({RAM, true}, "Ram", "Rem, Rem..."),
         db->line({RAM, true}, "Ram", "I'm good today"),
-        db->line("You decide to go back to sleep...")
+        db->line("You decide to go back to sleep..."),
+        db->choice("What to do now?", {
+            db->option("Sleep", {}),
+            db->option("Stay up", {})
+        }),
+        db->line("Bye bye")
     });
 
     // Main game loop

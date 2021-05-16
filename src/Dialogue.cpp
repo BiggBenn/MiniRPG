@@ -168,6 +168,11 @@ void Dialogue::unsetPortrait()
     showPortrait = false;
 }
 
+void Dialogue::skipText() 
+{
+    textPosition = targetText.length();
+}
+
 void Dialogue::hide() 
 {
     state = CLOSING;
@@ -183,4 +188,9 @@ void Dialogue::show()
 bool Dialogue::isShown() 
 {
     return state == OPEN;
+}
+
+bool Dialogue::isFinished() 
+{
+    return textPosition >= targetText.length();
 }

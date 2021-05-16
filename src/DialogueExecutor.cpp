@@ -18,6 +18,11 @@ void DialogueExecutor::next()
 
     if(!dialogue->isShown()){
         dialogue->show();
+    }else{
+        if(!dialogue->isFinished()){
+            dialogue->skipText();
+            return;
+        }
     }
 
     if(lastRef->next[0] == 0){

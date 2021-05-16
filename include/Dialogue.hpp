@@ -68,11 +68,13 @@ class Dialogue
 		void showOptions(std::string content, std::vector<std::string> options, int* destination, std::string name = "");
 		void setPortrait(Texture2D texture, bool flipped = false);
 		void unsetPortrait();
+		void skipText();
 
 		void hide();
 		void show();
 
 		bool isShown();
+		bool isFinished();
 
 };
 #endif

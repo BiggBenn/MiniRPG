@@ -102,7 +102,11 @@ int DialogueBuilder::choice(PortraitDefinition portrait, std::string name, std::
 }
 
 int DialogueBuilder::option(std::string option, std::vector<int> nodes) {
-    executor->content.push_back({OPTION,"", option, 1, {nodes[0]}});
+    if(nodes.empty()){
+        executor->content.push_back({OPTION,"", option, 1, {nop()}});
+    }else{
+        executor->content.push_back({OPTION,"", option, 1, {nodes[0]}});
+    }
 
     construct(nodes);
 
