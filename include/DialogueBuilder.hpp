@@ -23,8 +23,8 @@ class DialogueBuilder {
     virtual ~DialogueBuilder();
 
     //Every new construction needs to start with a start() call
-    //so DialogueBuilder->start().construct(...)
-    DialogueBuilder& start();
+    //so DialogueBuilder->start()->construct(...)
+    DialogueBuilder* start();
 
     //Main way of constructing a Dialogue with an executor
     //The user is responsible for freeing this pointer when it's no longer needed.

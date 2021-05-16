@@ -8,8 +8,8 @@ Dialogue::Dialogue(float height, float margin)
     int sWidth = GetScreenWidth();
     int sHeight = GetScreenHeight();
 
-    contentFont = LoadFontEx("resources/font.ttf", contentFontSize, 0, NULL);
-    speakerNameFont = LoadFontEx("resources/font.ttf", speakerFontSize, 0, NULL);
+    contentFont = LoadFontEx("resources/font.ttf", contentFontSize, 0, 0);
+    speakerNameFont = LoadFontEx("resources/font.ttf", speakerFontSize, 0, 0);
 
     //semi transparent window with the original texture color
     windowDrawColorFilter = ColorAlpha(WHITE, 0.8f);

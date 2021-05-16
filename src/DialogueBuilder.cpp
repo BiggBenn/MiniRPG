@@ -10,10 +10,10 @@ DialogueBuilder::~DialogueBuilder()
 	
 }
 
-DialogueBuilder& DialogueBuilder::start() 
+DialogueBuilder* DialogueBuilder::start() 
 {
     executor = new DialogueExecutor();
-    return *this;
+    return this;
 }
 
 void DialogueBuilder::identifyLooseEnds(std::vector<int> nodes) {
