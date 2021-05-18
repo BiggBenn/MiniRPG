@@ -51,6 +51,9 @@
     <ClCompile Include="..\src\ButtonMashScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TimingGameScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\raymath.h">
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ButtonMashScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TimingGameScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

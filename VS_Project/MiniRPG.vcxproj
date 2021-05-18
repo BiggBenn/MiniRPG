@@ -179,6 +179,7 @@
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\SceneManager.cpp" />
+    <ClCompile Include="..\src\TimingGameScene.cpp" />
     <ClCompile Include="..\src\Weed.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +194,7 @@
     <ClInclude Include="..\include\Scene.hpp" />
     <ClInclude Include="..\include\SceneManager.hpp" />
     <ClInclude Include="..\include\StoryProgress.hpp" />
+    <ClInclude Include="..\include\TimingGameScene.hpp" />
     <ClInclude Include="..\include\TypeFlags.hpp" />
     <ClInclude Include="..\include\Weed.hpp" />
   </ItemGroup>

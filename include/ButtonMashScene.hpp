@@ -18,9 +18,9 @@ private:
 	float timeout = 2;	//2 second timeout
 
 	//The shape of the bar in total, the container
-	GameObject* barShape;
+	GameObject* barShape = nullptr;
 	//the bar that actually gets longer upon player button mashing
-	GameObject* barFilling;
+	GameObject* barFilling = nullptr;
 public:
 	//constructor
 	ButtonMashScene(std::function<void(void)> success_callback, std::function<void(void)> failure_callback, float Difficulty = 1);

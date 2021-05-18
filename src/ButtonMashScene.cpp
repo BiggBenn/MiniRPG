@@ -4,7 +4,10 @@
 ButtonMashScene::ButtonMashScene(std::function<void(void)> success_callback, std::function<void(void)> failure_callback, float Difficulty) : MiniGameScene(success_callback, failure_callback)
 {
 	difficulty = Difficulty;
+}
 
+void ButtonMashScene::Initialize()
+{
 	//set up the bar objects
 	barShape = new GameObject();
 	all_objects.push_back(barShape);
@@ -15,11 +18,6 @@ ButtonMashScene::ButtonMashScene(std::function<void(void)> success_callback, std
 	all_objects.push_back(barFilling);
 	barFilling->SetPosition({ 0,-100 });
 	barFilling->SetSize({ 0, 40 });
-}
-
-void ButtonMashScene::Initialize()
-{
-	//Do nothing
 }
 
 void ButtonMashScene::update(float delta)
