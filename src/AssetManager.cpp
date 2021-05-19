@@ -41,6 +41,8 @@ Texture2D AssetManager::RequestTexture(std::string path)
 		//otherwise, load up the texture
 		RegisteredTexture regtex;
 		regtex.texture = LoadTexture(path.c_str());
+		if (regtex.texture.id == 0)
+			regtex.texture = LoadTexture("resources/defaultTexture.png");
 		regtex.userCount = 1;
 		LoadedTextures.emplace(path, regtex);
 		return regtex.texture;
