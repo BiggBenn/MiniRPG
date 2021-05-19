@@ -12,7 +12,7 @@ Weed::~Weed()
 
 }
 
-void Weed::interact()
+void Weed::interact(Player* player)
 {
 	//prepare function to hand over to the button mash scene
 	std::function<void(void)> success_callback = std::bind(&Weed::pullOut, this);

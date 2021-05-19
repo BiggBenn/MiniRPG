@@ -66,7 +66,7 @@ protected:
 public:
 
 	//constructor
-	GameObject();
+	GameObject(std::string texPath = "resources/defaultTexture.png");
 
 	//destructor
 	~GameObject();
@@ -75,7 +75,7 @@ public:
 	virtual void update(float delta);
 
 	//drawing function
-	void draw();
+	virtual void draw();
 
 	//getset for position
 	Vector2 GetPosition();

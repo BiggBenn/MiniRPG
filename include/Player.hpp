@@ -1,4 +1,8 @@
 #pragma once
+
+//forward declaration of Player
+class Player;
+
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 

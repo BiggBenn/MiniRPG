@@ -1,8 +1,9 @@
 #include "GameObject.hpp"
 
 
-GameObject::GameObject()
+GameObject::GameObject(std::string texpath)
 {
+	texturePath = texpath;
 	texture = AssetManager::GetAssetManager()->RequestTexture(texturePath);
 	sourceRect.width = texture.width;
 	sourceRect.height = texture.height;
