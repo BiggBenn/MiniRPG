@@ -2,6 +2,7 @@
 
 #include "Egg.hpp"
 #include "Weed.hpp"
+#include "LogChopSpot.hpp"
 
 Scene::Scene()
 {
@@ -64,6 +65,11 @@ void Scene::Initialize()
 	Weed* weed = new Weed();
 	all_objects.push_back(weed);
 	weed->SetPosition({ 0100, 100 });
+
+	//spawn log chop spot
+	LogChopSpot* spot = new LogChopSpot();
+	all_objects.push_back(spot);
+	spot->SetPosition({ -200, -50 });
 }
 
 void Scene::update(float delta)
