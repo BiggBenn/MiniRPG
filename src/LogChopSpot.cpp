@@ -76,30 +76,30 @@ void LogChopSpot::draw()
 		Vector2 adjustment = { 0,0 };
 		if (i == 0)
 		{
-			adjustment.x = -10;
+			adjustment.x += -10;
 		}
 		else if (i == 1)
 		{
-			adjustment.x = 0;
+			adjustment.x += 0;
 		}
 		else if (i == 2)
 		{
-			adjustment.x = 10;
+			adjustment.x += 10;
 		}
 		else if (i == 3)
 		{
-			adjustment.x = -5;
-			adjustment.y = -10;
+			adjustment.x += -5;
+			adjustment.y += -10;
 		}
 		else if (i == 4)
 		{
-			adjustment.x = 5;
-			adjustment.y = -10;
+			adjustment.x += 5;
+			adjustment.y += -10;
 		}
 		else if (i == 5)
 		{
-			adjustment.x = 0;
-			adjustment.y = -20;
+			adjustment.x += 0;
+			adjustment.y += -20;
 		}
 
 		unchoppedLogs->SetPosition(position + unchoppedOffset + adjustment);
@@ -114,30 +114,30 @@ void LogChopSpot::draw()
 		Vector2 adjustment = { 0,0 };
 		if (j == 0)
 		{
-			adjustment.x = -10;
+			adjustment.x += -10;
 		}
 		else if (j == 1)
 		{
-			adjustment.x = 0;
+			adjustment.x += 0;
 		}
 		else if (j == 2)
 		{
-			adjustment.x = 10;
+			adjustment.x += 10;
 		}
 		else if (j == 3)
 		{
-			adjustment.x = -5;
-			adjustment.y = -10;
+			adjustment.x += -5;
+			adjustment.y += -10;
 		}
 		else if (j == 4)
 		{
-			adjustment.x = 5;
-			adjustment.y = -10;
+			adjustment.x += 5;
+			adjustment.y += -10;
 		}
 		else if (j == 5)
 		{
-			adjustment.x = 0;
-			adjustment.y = -20;
+			adjustment.x += 0;
+			adjustment.y += -20;
 		}
 
 		choppedLogs->SetPosition(position + choppedOffset + adjustment);

@@ -109,3 +109,19 @@ void GameObject::SetRotation(float rot)
 {
 	rotation = rot;
 }
+
+int GameObject::GetZ()
+{
+	return z;
+}
+
+void GameObject::SetZ(int value)
+{
+	z = value;
+	zChanged = true;
+}
+
+bool GameObject::CompareZ(GameObject* A, GameObject* B)
+{
+	return A->GetZ() < B->GetZ();
+}
