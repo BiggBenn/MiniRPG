@@ -172,6 +172,9 @@
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
     <ClCompile Include="..\src\ButtonMashScene.cpp" />
+    <ClCompile Include="..\src\Dialogue.cpp" />
+    <ClCompile Include="..\src\DialogueBuilder.cpp" />
+    <ClCompile Include="..\src\DialogueExecutor.cpp" />
     <ClCompile Include="..\src\Egg.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\main.cpp" />
@@ -184,6 +187,10 @@
   <ItemGroup>
     <ClInclude Include="..\include\AssetManager.hpp" />
     <ClInclude Include="..\include\ButtonMashScene.hpp" />
+    <ClInclude Include="..\include\Dialogue.hpp" />
+    <ClInclude Include="..\include\DialogueBuilder.hpp" />
+    <ClInclude Include="..\include\DialogueExecutor.hpp" />
+    <ClInclude Include="..\include\DialogueIncludes.hpp" />
     <ClInclude Include="..\include\Egg.hpp" />
     <ClInclude Include="..\include\GameObject.hpp" />
     <ClInclude Include="..\include\InteractableObject.hpp" />
