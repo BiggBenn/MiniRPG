@@ -16,7 +16,7 @@ Dialogue::Dialogue(float height, float margin)
 
     float realHeight = (float)sHeight * height;
 	nPatchTexture = AssetManager::GetAssetManager()->RequestTexture("resources/dialogue_blue.png");
-    nPatchInfo = { (Rectangle){ 0.0f, 0.0f, 64.0f, 64.0f }, 16, 16, 16, 16, NPATCH_NINE_PATCH };
+    nPatchInfo = { { 0.0f, 0.0f, 64.0f, 64.0f }, 16, 16, 16, 16, NPATCH_NINE_PATCH };
     destRectangle = {   margin,
                         sHeight - realHeight - margin,
                         sWidth - (2 * margin),
@@ -29,7 +29,7 @@ Dialogue::Dialogue(float height, float margin)
                             realHeight - (2*inset)};
 
     nPatchTextureNametag = AssetManager::GetAssetManager()->RequestTexture("resources/dialogue_blue.png");
-    nPatchInfoNametag = { (Rectangle){ 0.0f, 0.0f, 64.0f, 64.0f }, 8, 8, 8, 8, NPATCH_NINE_PATCH };
+    nPatchInfoNametag = { { 0.0f, 0.0f, 64.0f, 64.0f }, 8, 8, 8, 8, NPATCH_NINE_PATCH };
     nametagRectangle = destRectangle;
 
     inset = nametagTextInset;
