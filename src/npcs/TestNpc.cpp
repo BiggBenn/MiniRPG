@@ -35,7 +35,7 @@ TestNpc::TestNpc()
     db->start();
     dialogue_in_progress = db->construct({
         db->nop(),
-        db->condition([](){return StoryProgress::eggsCollected == StoryProgress::goalEggCount;}, {
+        db->condition([](){return StoryProgress::eggsCollected >= StoryProgress::goalEggCount;}, {
             db->line({normal_face}, "Rem", "Oh lovely! you found all my eggs!"),
             db->line({normal_face}, "Rem", "Thank you sooo much!"),
             db->line({normal_face}, "Rem", "Now I can finally make the biggest omelette possible for my master!"),
