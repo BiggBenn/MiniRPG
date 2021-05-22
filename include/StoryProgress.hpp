@@ -3,9 +3,8 @@
 #ifndef STORYPROGRESS_HPP
 #define STORYPROGRESS_HPP
 
-class StoryProgress
+namespace StoryProgress
 {
-public:
 	/*
 	*	General story guide:
 	*		-Player is tasked to check on 10 farmers to see if they are coming to the festival
@@ -26,34 +25,25 @@ public:
 	*/
 
 	//egg collection progress, 12 eggs needed to fulfill the task
-	static int eggsCollected; // = 0
-	
-	static const int goalEggCount = 12;
+	inline int eggsCollected = 0;
+	inline const int goalEggCount = 12;
 
 	//amount of weeds plucked, 9 is the goal
-	static int weedsPlucked; // = 0;
-	static const int goalWeedCount = 9;
+	inline int weedsPlucked = 0;
+	inline const int goalWeedCount = 9;
 
 	//amount of wood chopped, 6 is the goal
-	static int woodChopped; // = 0;
-	static const int goalWoodCount = 6;
+	inline int woodChopped = 0;
+	inline const int goalWoodCount = 6;
 
 	//Whether or not the player has found the lost dog
-	static bool dogFound; //= false;
+	inline bool dogFound = false;
 
 	//how much time the player has left, in general they have time to visit 10 farms
 	//taking time to help someone costs time as well, so if you help everyone, you can only visit 6 farms
-	static int timeLeft; // = 10;
+	inline int timeLeft = 10;
 
 
 };
-
-//variable initializers
-inline int StoryProgress::eggsCollected = 0;
-inline int StoryProgress::weedsPlucked = 0;
-inline int StoryProgress::woodChopped = 0;
-inline bool StoryProgress::dogFound = false;
-inline int StoryProgress::timeLeft = 10;
-
 
 #endif
