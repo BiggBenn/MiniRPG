@@ -61,7 +61,7 @@ void Player::interact()
 		if (gobj->CheckFlags(TypeFlag::Interactable) && gobj != this)
 		{
 			InteractableObject* iobj = (InteractableObject*)gobj;
-			iobj->interact();
+			iobj->interact(this);
 
 			//return to make sure the player only interacts with a single object per button press
 			return;

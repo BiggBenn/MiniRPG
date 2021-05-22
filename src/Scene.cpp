@@ -3,6 +3,7 @@
 #include "Egg.hpp"
 #include "Weed.hpp"
 #include "npcs/TestNpc.hpp"
+#include "LogChopSpot.hpp"
 
 Scene::Scene()
 {
@@ -29,7 +30,7 @@ void Scene::Initialize()
 	//load default texture, no reason not to have it in vram
 	AssetManager::GetAssetManager()->RequestTexture("resources/defaultTexture.png");
 
-	/*//create a test object 
+	/*//create a test object
 	GameObject* obj = new GameObject();
 	all_objects.push_back(obj);
 	obj->SetPosition({ 100,20 });
@@ -61,6 +62,18 @@ void Scene::Initialize()
 		egg->SetSize({ 30,50 });
 	}
 
+	Egg* eggo = new Egg();
+	all_objects.push_back(eggo);
+	eggo->SetZ(50);
+	eggo->SetPosition({ 0,0 });
+	eggo->SetSize({ 30,50 });
+
+	GameObject* ob = new GameObject();
+	all_objects.push_back(ob);
+	ob->SetZ(-50);
+	ob->SetPosition({ 0,0 });
+	ob->SetSize({100, 100});
+
 	//spawn weed
 	Weed* weed = new Weed();
 	all_objects.push_back(weed);
@@ -69,10 +82,16 @@ void Scene::Initialize()
 	TestNpc* testNpc = new TestNpc();
 	all_objects.push_back(testNpc);
 	testNpc->SetPosition({ -100, -100 });
+
+	//spawn log chop spot
+	LogChopSpot* spot = new LogChopSpot();
+	all_objects.push_back(spot);
+	spot->SetPosition({ -200, -50 });
 }
 
 void Scene::update(float delta)
 {
+	bool sortVector = false;
 	std::vector<GameObject*> toDelete;
 	for (GameObject* obj : all_objects)
 	{
@@ -81,6 +100,11 @@ void Scene::update(float delta)
 		if (obj->DeleteFlag)
 		{
 			toDelete.push_back(obj);
+		}
+		if (obj->zChanged)
+		{
+			sortVector = true;
+			obj->zChanged = false;
 		}
 	}
 
@@ -91,6 +115,13 @@ void Scene::update(float delta)
 		all_objects.erase(std::remove(all_objects.begin(), all_objects.end(), obj), all_objects.end());
 	}
 	toDelete.clear();
+
+
+	if (sortVector)
+	{
+		//sort the vector by z
+		std::sort(all_objects.begin(), all_objects.end(), GameObject::CompareZ);
+	}
 }
 
 void Scene::draw()

@@ -63,7 +63,7 @@ TestNpc::~TestNpc()
 }
 
 
-void TestNpc::interact() 
+void TestNpc::interact(Player* player) 
 {
     SceneManager::GetSceneManager()->AddScene(new DialogueScene(dialogue_current));
 }

@@ -23,7 +23,7 @@ class TestNpc : public InteractableObject
 		~TestNpc();
 
 		//interact override
-		void interact() override;
+		void interact(Player* player) override;
 
 };
 #endif

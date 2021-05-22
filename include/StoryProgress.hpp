@@ -28,9 +28,9 @@ namespace StoryProgress
 	inline int eggsCollected = 0;
 	inline const int goalEggCount = 12;
 
-	//amount of weeds plucked, 7 is the goal
+	//amount of weeds plucked, 9 is the goal
 	inline int weedsPlucked = 0;
-	inline const int goalWeedCount = 7;
+	inline const int goalWeedCount = 9;
 
 	//amount of wood chopped, 6 is the goal
 	inline int woodChopped = 0;

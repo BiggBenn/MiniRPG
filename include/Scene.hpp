@@ -8,6 +8,7 @@ class Scene;
 
 //system libs
 #include <vector>
+#include <algorithm>
 
 //other libs
 

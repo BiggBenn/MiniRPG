@@ -12,7 +12,7 @@ public:
 	Egg();
 	~Egg();
 
-	void interact() override;
+	void interact(Player* player) override;
 };
 
 #endif

@@ -15,7 +15,7 @@ Egg::~Egg()
 
 }
 
-void Egg::interact()
+void Egg::interact(Player* player)
 {
 	StoryProgress::eggsCollected += 1;
 	DeleteFlag = true;

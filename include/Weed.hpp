@@ -16,7 +16,7 @@ public:
 	~Weed();
 
 	//interact override
-	void interact() override;
+	void interact(Player* player) override;
 
 	//callback thatll pull out the weed
 	void pullOut();

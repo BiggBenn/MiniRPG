@@ -1,8 +1,9 @@
 #include "GameObject.hpp"
 
 
-GameObject::GameObject()
+GameObject::GameObject(std::string texpath)
 {
+	texturePath = texpath;
 	texture = AssetManager::GetAssetManager()->RequestTexture(texturePath);
 	sourceRect.width = texture.width;
 	sourceRect.height = texture.height;
@@ -107,4 +108,20 @@ float GameObject::GetRotation()
 void GameObject::SetRotation(float rot)
 {
 	rotation = rot;
+}
+
+int GameObject::GetZ()
+{
+	return z;
+}
+
+void GameObject::SetZ(int value)
+{
+	z = value;
+	zChanged = true;
+}
+
+bool GameObject::CompareZ(GameObject* A, GameObject* B)
+{
+	return A->GetZ() < B->GetZ();
 }

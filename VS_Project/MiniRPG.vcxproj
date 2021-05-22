@@ -177,11 +177,13 @@
     <ClCompile Include="..\src\DialogueExecutor.cpp" />
     <ClCompile Include="..\src\Egg.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
+    <ClCompile Include="..\src\LogChopSpot.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\MiniGameScene.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\SceneManager.cpp" />
+    <ClCompile Include="..\src\TimingGameScene.cpp" />
     <ClCompile Include="..\src\Weed.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -194,12 +196,14 @@
     <ClInclude Include="..\include\Egg.hpp" />
     <ClInclude Include="..\include\GameObject.hpp" />
     <ClInclude Include="..\include\InteractableObject.hpp" />
+    <ClInclude Include="..\include\LogChopSpot.hpp" />
     <ClInclude Include="..\include\MiniGameScene.hpp" />
     <ClInclude Include="..\include\Player.hpp" />
     <ClInclude Include="..\include\raymath.h" />
     <ClInclude Include="..\include\Scene.hpp" />
     <ClInclude Include="..\include\SceneManager.hpp" />
     <ClInclude Include="..\include\StoryProgress.hpp" />
+    <ClInclude Include="..\include\TimingGameScene.hpp" />
     <ClInclude Include="..\include\TypeFlags.hpp" />
     <ClInclude Include="..\include\Weed.hpp" />
   </ItemGroup>

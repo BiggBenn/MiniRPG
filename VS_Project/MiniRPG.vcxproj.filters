@@ -51,6 +51,12 @@
     <ClCompile Include="..\src\ButtonMashScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\TimingGameScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\LogChopSpot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\src\Dialogue.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -101,6 +107,12 @@
     <ClInclude Include="..\include\ButtonMashScene.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\TimingGameScene.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\LogChopSpot.hpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
     <ClInclude Include="..\include\Dialogue.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

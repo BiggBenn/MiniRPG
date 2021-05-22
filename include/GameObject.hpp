@@ -43,6 +43,10 @@ protected:
 	//
 	Vector2 velocity = { 0,0 };
 
+	//Z value is depth in image, flag is triggered on change of z, so we can sort after update.
+	int z = 0;
+	
+
 	//texture*path* of the object
 	std::string texturePath = "resources/defaultTexture.png";
 
@@ -66,7 +70,7 @@ protected:
 public:
 
 	//constructor
-	GameObject();
+	GameObject(std::string texPath = "resources/defaultTexture.png");
 
 	//destructor
 	~GameObject();
@@ -75,7 +79,7 @@ public:
 	virtual void update(float delta);
 
 	//drawing function
-	void draw();
+	virtual void draw();
 
 	//getset for position
 	Vector2 GetPosition();
@@ -103,8 +107,18 @@ public:
 	float GetRotation();
 	void SetRotation(float rot);
 
+	//getset for z
+	int GetZ();
+	void SetZ(int value);
+
 	//Delete flag, if true the object will be deleted after the update cycle
 	bool DeleteFlag = false;
+
+	//flag that indicates whether or not z was changed, so the object vector can be sorted
+	bool zChanged = false;
+
+
+	static bool CompareZ(GameObject* A, GameObject* B);
 };
 
 #endif
