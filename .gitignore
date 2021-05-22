@@ -2,3 +2,4 @@ VS_Project/.vs/
 VS_Project/build/
 build/
 obj/
+raylib.dll
