@@ -1,4 +1,5 @@
 #include "Egg.hpp"
+#include "StoryProgress.hpp"
 
 Egg::Egg()
 {

@@ -18,6 +18,7 @@ class DialogueExecutor {
         int     index = 0;
         int     lastIndex = 0;
         int     option = 0;
+        bool    finished = false;
 
     public:
         friend class DialogueBuilder;
@@ -28,5 +29,6 @@ class DialogueExecutor {
         void next();
         void draw();
         void update();
+        bool isFinished();
 };
 #endif

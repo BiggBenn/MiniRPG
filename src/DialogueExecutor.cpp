@@ -1,5 +1,5 @@
 #include "DialogueExecutor.hpp"  
-	
+
 DialogueExecutor::DialogueExecutor()
 {
 	dialogue = new Dialogue();
@@ -10,7 +10,6 @@ DialogueExecutor::~DialogueExecutor()
 {
 	
 }
-
 
 void DialogueExecutor::next() 
 {
@@ -29,6 +28,7 @@ void DialogueExecutor::next()
         dialogue->hide();
         index = 0;
         lastIndex = 0;
+        finished = true;
         return;
     }
 
@@ -93,4 +93,9 @@ void DialogueExecutor::draw()
 void DialogueExecutor::update() 
 {
     dialogue->update();
+}
+
+bool DialogueExecutor::isFinished() 
+{
+    return dialogue->isHidden() && finished;
 }

@@ -38,7 +38,7 @@ void Player::update(float delta)
 		rotation = Vector2Angle(Vector2Up(), direction);
 	}
 
-	//handle collisions, after the fact because the player is not going to move aall that much. Higher speed situations would do better with projecting the planned movement ahead, and cutting it short to not collide
+	//handle collisions, after the fact because the player is not going to move all that much. Higher speed situations would do better with projecting the planned movement ahead, and cutting it short to not collide
 	handleCollisions();
 
 	//Interaction

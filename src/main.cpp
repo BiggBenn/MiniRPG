@@ -7,7 +7,6 @@
 //project includes
 #include "Scene.hpp"
 #include "SceneManager.hpp"
-#include "DialogueBuilder.hpp"
 
 int main(void)
 {
@@ -23,25 +22,6 @@ int main(void)
     SceneManager* scenes = SceneManager::GetSceneManager();
     scenes->AddScene( new Scene());
 
-    Texture2D REM = LoadTexture("resources/portrait-1.png");
-    Texture2D RAM = LoadTexture("resources/portrait-2.png");
-
-    DialogueBuilder* db = new DialogueBuilder();
-    db->start();
-    DialogueExecutor* executor = db->construct({
-        db->line("You wake up, and see two colorful figures..."),
-        db->line({REM}, "Rem", "Sister, Sister..."),
-        db->line({REM}, "Rem", "How are you?"),
-        db->line({RAM, true}, "Ram", "Rem, Rem..."),
-        db->line({RAM, true}, "Ram", "I'm good today"),
-        db->line("You decide to go back to sleep..."),
-        db->choice("What to do now?", {
-            db->option("Sleep", {}),
-            db->option("Stay up", {})
-        }),
-        db->line("Bye bye")
-    });
-
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
@@ -49,11 +29,6 @@ int main(void)
         //----------------------------------------------------------------------------------
         float delta = GetFrameTime();
 
-        if (IsKeyPressed(KEY_ENTER)) {
-            executor->next();
-        }
-
-        executor->update();
         scenes->update(delta);
         //----------------------------------------------------------------------------------
 
@@ -64,7 +39,6 @@ int main(void)
         ClearBackground(RAYWHITE);
 
         scenes->draw();
-        executor->draw();
 
         EndDrawing();
         //----------------------------------------------------------------------------------

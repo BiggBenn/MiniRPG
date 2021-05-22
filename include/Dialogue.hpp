@@ -74,6 +74,7 @@ class Dialogue
 		void show();
 
 		bool isShown();
+		bool isHidden();
 		bool isFinished();
 
 };

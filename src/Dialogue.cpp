@@ -190,6 +190,11 @@ bool Dialogue::isShown()
     return state == OPEN;
 }
 
+bool Dialogue::isHidden() 
+{
+    return state == CLOSED;
+}
+
 bool Dialogue::isFinished() 
 {
     return textPosition >= targetText.length();
