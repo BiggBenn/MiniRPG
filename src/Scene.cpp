@@ -111,8 +111,8 @@ void Scene::update(float delta)
 	for (GameObject* obj : toDelete)
 	{
 		//delete both the object and the reference in all_objects
-		delete obj;
 		all_objects.erase(std::remove(all_objects.begin(), all_objects.end(), obj), all_objects.end());
+		delete obj;
 	}
 	toDelete.clear();
 

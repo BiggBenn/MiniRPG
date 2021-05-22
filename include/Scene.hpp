@@ -32,7 +32,7 @@ public:
 	Scene();
 
 	//destructor
-	~Scene();
+	virtual ~Scene();
 
 	//initializer intended for children to overwrite, called from SceneManager on Add
 	virtual void Initialize();

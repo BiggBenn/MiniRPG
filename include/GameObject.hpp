@@ -73,7 +73,7 @@ public:
 	GameObject(std::string texPath = "resources/defaultTexture.png");
 
 	//destructor
-	~GameObject();
+	virtual ~GameObject();
 
 	//update function, delta is time passed since last frame
 	virtual void update(float delta);

@@ -13,6 +13,7 @@ class SceneManager
 {
 private:
 	std::vector<Scene*> scenes;
+	std::vector<Scene*> pendingDelete;
 	
 	//
 	static SceneManager* Singleton;

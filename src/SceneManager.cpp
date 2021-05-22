@@ -26,15 +26,22 @@ void SceneManager::AddScene(Scene* scene)
 
 void SceneManager::PopScene()
 {
-	Scene* scene = scenes.back();
+ 	pendingDelete.push_back(scenes.back());
 	scenes.pop_back();
-	delete scene;
 }
 
 void SceneManager::update(float delta)
 {
 	//update the topmost scene
 	scenes.back()->update(delta);
+
+	if (pendingDelete.size() > 0){
+		for (Scene* scene : pendingDelete) {
+			delete scene;
+		}
+		pendingDelete.clear();
+	}
+
 }
 
 void SceneManager::draw()
