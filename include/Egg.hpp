@@ -4,7 +4,6 @@
 #define EGG_HPP
 
 #include "InteractableObject.hpp"
-#include "StoryProgress.hpp"
 
 class Egg : public InteractableObject
 {

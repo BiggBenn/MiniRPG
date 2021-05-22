@@ -172,29 +172,40 @@
   <ItemGroup>
     <ClCompile Include="..\src\AssetManager.cpp" />
     <ClCompile Include="..\src\ButtonMashScene.cpp" />
+    <ClCompile Include="..\src\Dialogue.cpp" />
+    <ClCompile Include="..\src\DialogueBuilder.cpp" />
+    <ClCompile Include="..\src\DialogueExecutor.cpp" />
     <ClCompile Include="..\src\Egg.cpp" />
     <ClCompile Include="..\src\GameObject.cpp" />
     <ClCompile Include="..\src\LogChopSpot.cpp" />
     <ClCompile Include="..\src\main.cpp" />
     <ClCompile Include="..\src\MiniGameScene.cpp" />
+    <ClCompile Include="..\src\npcs\TestNpc.cpp" />
     <ClCompile Include="..\src\Player.cpp" />
     <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\SceneManager.cpp" />
+    <ClCompile Include="..\src\scenes\DialogueScene.cpp" />
     <ClCompile Include="..\src\TimingGameScene.cpp" />
     <ClCompile Include="..\src\Weed.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\AssetManager.hpp" />
     <ClInclude Include="..\include\ButtonMashScene.hpp" />
+    <ClInclude Include="..\include\Dialogue.hpp" />
+    <ClInclude Include="..\include\DialogueBuilder.hpp" />
+    <ClInclude Include="..\include\DialogueExecutor.hpp" />
+    <ClInclude Include="..\include\DialogueIncludes.hpp" />
     <ClInclude Include="..\include\Egg.hpp" />
     <ClInclude Include="..\include\GameObject.hpp" />
     <ClInclude Include="..\include\InteractableObject.hpp" />
     <ClInclude Include="..\include\LogChopSpot.hpp" />
     <ClInclude Include="..\include\MiniGameScene.hpp" />
+    <ClInclude Include="..\include\npcs\TestNpc.hpp" />
     <ClInclude Include="..\include\Player.hpp" />
     <ClInclude Include="..\include\raymath.h" />
     <ClInclude Include="..\include\Scene.hpp" />
     <ClInclude Include="..\include\SceneManager.hpp" />
+    <ClInclude Include="..\include\scenes\DialogueScene.hpp" />
     <ClInclude Include="..\include\StoryProgress.hpp" />
     <ClInclude Include="..\include\TimingGameScene.hpp" />
     <ClInclude Include="..\include\TypeFlags.hpp" />

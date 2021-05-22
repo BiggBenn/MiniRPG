@@ -26,7 +26,9 @@ void SceneManager::AddScene(Scene* scene)
 
 void SceneManager::PopScene()
 {
+	Scene* scene = scenes.back();
 	scenes.pop_back();
+	delete scene;
 }
 
 void SceneManager::update(float delta)

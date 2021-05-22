@@ -5,16 +5,19 @@ CFLAGS = -ggdb -std=c++17
 EXE = MiniRPG
 
 OBJ_DIR = ./obj
-INCLUDES = -Iinclude
+INCLUDES = -Iinclude -Iinclude/scenes -Iinclude/npcs
 INCLUDES_LINUX = $(INCLUDES) -Llib
 INCLUDES_WIN = $(INCLUDES) -Iraylib32/include/ -Lraylib32/lib/
 
-OBJS:=main.o GameObject.o Player.o Scene.o AssetManager.o
+OBJS:=main.o GameObject.o Player.o Scene.o SceneManager.o AssetManager.o Dialogue.o DialogueExecutor.o DialogueBuilder.o MiniGameScene.o ButtonMashScene.o Egg.o Weed.o TimingGameScene.o LogChopSpot.o scenes/DialogueScene.o npcs/TestNpc.o
 OBJ_DEPS = $(patsubst %,$(OBJ_DIR)/%,$(OBJS))
 
 build: linux
 
 linux: dirs $(EXE)
+
+valgrind: $(EXE)
+	valgrind --leak-check=yes ./build/$(EXE)
 
 $(OBJ_DIR)/%.o: %.cpp
 	$(CC) $(CFLAGS) $(INCLUDES) -MD -MP $< -c -o $@
@@ -31,10 +34,10 @@ $(EXE).exe: $(patsubst %,$(OBJ_DIR)/win32/%,$(OBJS))
 	$(WIN_CC) $(CFLAGS) $^ $(INCLUDES_WIN) -o ./build/$(EXE).exe -Wall -lraylib.dll -lopengl32 -lgdi32 -lwinmm -static -lpthread
 
 dirs:
-	mkdir -p obj build
+	mkdir -p obj $(addprefix $(OBJ_DIR)/, $(dir $(OBJS))) build
 
 dirs_win:
-	mkdir -p obj obj/win32 build
+	mkdir -p obj obj/win32 $(addprefix $(OBJ_DIR)/win32/, $(dir $(OBJS))) build
 
 deps_win: copy_resources copy_raylibdll
 

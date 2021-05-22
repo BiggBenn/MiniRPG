@@ -1,4 +1,3 @@
-
 //system libs
 
 //other libs
@@ -23,13 +22,13 @@ int main(void)
     SceneManager* scenes = SceneManager::GetSceneManager();
     scenes->AddScene( new Scene());
 
-
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         // Update
         //----------------------------------------------------------------------------------
         float delta = GetFrameTime();
+
         scenes->update(delta);
         //----------------------------------------------------------------------------------
 

@@ -2,6 +2,7 @@
 
 #include "Egg.hpp"
 #include "Weed.hpp"
+#include "npcs/TestNpc.hpp"
 #include "LogChopSpot.hpp"
 
 Scene::Scene()
@@ -76,7 +77,11 @@ void Scene::Initialize()
 	//spawn weed
 	Weed* weed = new Weed();
 	all_objects.push_back(weed);
-	weed->SetPosition({ 0100, 100 });
+	weed->SetPosition({ 100, 100 });
+
+	TestNpc* testNpc = new TestNpc();
+	all_objects.push_back(testNpc);
+	testNpc->SetPosition({ -100, -100 });
 
 	//spawn log chop spot
 	LogChopSpot* spot = new LogChopSpot();
