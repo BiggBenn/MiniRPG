@@ -3,6 +3,7 @@
 #include "Egg.hpp"
 #include "Weed.hpp"
 #include "npcs/TestNpc.hpp"
+#include "npcs/Jenkins.hpp"
 #include "LogChopSpot.hpp"
 
 Scene::Scene()
@@ -87,6 +88,11 @@ void Scene::Initialize()
 	LogChopSpot* spot = new LogChopSpot();
 	all_objects.push_back(spot);
 	spot->SetPosition({ -200, -50 });
+
+	//spawn jenkins
+	Jenkins* jenkins = new Jenkins();
+	all_objects.push_back(jenkins);
+	jenkins->SetPosition({ 200, -150 });
 }
 
 void Scene::update(float delta)

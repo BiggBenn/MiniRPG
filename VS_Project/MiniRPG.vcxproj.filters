@@ -84,6 +84,12 @@
     <ClCompile Include="..\src\scenes\DialogueScene.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\scenes\FarmNo1.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\npcs\Jenkins.cpp">
+      <Filter>Source Files\NPCs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\raymath.h">
@@ -148,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="..\include\scenes\DialogueScene.hpp">
       <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\scenes\FarmNo1.hpp">
+      <Filter>Header Files\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\npcs\Jenkins.hpp">
+      <Filter>Header Files\NPCs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

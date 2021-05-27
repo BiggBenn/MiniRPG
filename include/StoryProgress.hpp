@@ -24,25 +24,60 @@ namespace StoryProgress
 	* 
 	*/
 
+	
+	//how much time the player has left, in general they have time to visit 10 farms
+	//taking time to help someone costs time as well, so if you help everyone, you can only visit 6 farms
+	inline int timeLeft = 10;
+
+	///
+	///Farmer sections
+	/// 
+	
+	//#1 Jenkins
+	//he is coming either way, even if the player does not visit him
+
+
+	//#2 Ol' Rick
+	inline bool isComingOlRick = false;
+
+	//#3 Billy Bob / BB
+	inline bool isComingBB = false;
+	inline bool wasHelpedBB = false;
 	//egg collection progress, 12 eggs needed to fulfill the task
 	inline int eggsCollected = 0;
 	inline const int goalEggCount = 12;
 
+
+	//#4 Miller
+
+
+	//#5 Francine
+	inline bool wasHelped = false;
 	//amount of weeds plucked, 9 is the goal
 	inline int weedsPlucked = 0;
 	inline const int goalWeedCount = 9;
+
+	//#6 Alexander
+	
+
+	//#7 Theodore Richards -- forgot about the festival -- Flower garden -- provides decorative flowers and banners
+	inline bool isComingTed = false;
+	
+
+	//#8 Shepherd Christian -- Needs player to find his sheepdog -- Pasture -- provides cheese
+	inline bool isComingShep = false;
+	//Whether or not the player has found the lost dog
+	inline bool dogFound = false;
+	
+
+	//#9 Natalie
 
 	//amount of wood chopped, 6 is the goal
 	inline int woodChopped = 0;
 	inline const int goalWoodCount = 6;
 
-	//Whether or not the player has found the lost dog
-	inline bool dogFound = false;
 
-	//how much time the player has left, in general they have time to visit 10 farms
-	//taking time to help someone costs time as well, so if you help everyone, you can only visit 6 farms
-	inline int timeLeft = 10;
-
+	//#10 O'Malley
 
 };
 
