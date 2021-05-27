@@ -90,6 +90,9 @@
     <ClCompile Include="..\src\npcs\Jenkins.cpp">
       <Filter>Source Files\NPCs</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\scenes\IntroScene.cpp">
+      <Filter>Source Files\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\raymath.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="..\include\npcs\Jenkins.hpp">
       <Filter>Header Files\NPCs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\scenes\IntroScene.hpp">
+      <Filter>Header Files\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

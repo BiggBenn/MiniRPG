@@ -187,6 +187,7 @@
     <ClCompile Include="..\src\SceneManager.cpp" />
     <ClCompile Include="..\src\scenes\DialogueScene.cpp" />
     <ClCompile Include="..\src\scenes\FarmNo1.cpp" />
+    <ClCompile Include="..\src\scenes\IntroScene.cpp" />
     <ClCompile Include="..\src\TimingGameScene.cpp" />
     <ClCompile Include="..\src\Weed.cpp" />
   </ItemGroup>
@@ -210,6 +211,7 @@
     <ClInclude Include="..\include\SceneManager.hpp" />
     <ClInclude Include="..\include\scenes\DialogueScene.hpp" />
     <ClInclude Include="..\include\scenes\FarmNo1.hpp" />
+    <ClInclude Include="..\include\scenes\IntroScene.hpp" />
     <ClInclude Include="..\include\StoryProgress.hpp" />
     <ClInclude Include="..\include\TimingGameScene.hpp" />
     <ClInclude Include="..\include\TypeFlags.hpp" />

@@ -6,6 +6,7 @@
 
 //project includes
 #include "Scene.hpp"
+#include "scenes/IntroScene.hpp"
 #include "SceneManager.hpp"
 
 int main(void)
@@ -20,7 +21,7 @@ int main(void)
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
     SceneManager* scenes = SceneManager::GetSceneManager();
-    scenes->AddScene( new Scene());
+    scenes->AddScene( new IntroScene());
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
