@@ -9,10 +9,13 @@ class IntroScene : public Scene
 {
 private:
 	DialogueExecutor* dialogue;
+	DialogueExecutor* goToJenkins;
 	Texture2D marv_normal;
 	Texture2D marv_happy;
+	GameObject* background;
 	bool introDialogueDone = false;
 
+	void SwitchBackground();
 public:
 	~IntroScene();
 	void Initialize() override;

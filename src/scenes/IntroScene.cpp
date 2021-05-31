@@ -1,6 +1,7 @@
 #include "scenes/IntroScene.hpp"
 
 #include "DialogueBuilder.hpp"
+#include "Scenes/ListScene.hpp"
 
 IntroScene::~IntroScene()
 {
@@ -12,7 +13,7 @@ IntroScene::~IntroScene()
 void IntroScene::Initialize()
 {
 	//prepare the background image
-	GameObject* background = new GameObject();
+	background = new GameObject();
 	background->ChangeTexture("resources/images/intro_background_1");
 	background->SetSize({(float) GetScreenWidth(), (float) GetScreenHeight() });
 	background->SetZ(-500);
@@ -56,10 +57,18 @@ void IntroScene::Initialize()
 		db->line("*Uncle hands you a piece of paper*"),
 		db->line({marv_happy}, "Uncle", "Alright! I'll leave you to it, and I will do my very best to prepare a great party for tonight. I'm sure you'll have fun!"),
 		db->line({marv_normal}, "Uncle", "See you tonight! I'll be waiting for you at Zeek's barn."),
+		db->call([&]() {
+			this->SwitchBackground(); 
+		}),
 		db->line("*Uncle pushes you out of the door in front of him, and then leaves you while walking to his tractor*"),
 		db->call([&]() {
 			this->introDialogueDone = true;
 		})
+	});
+
+	db->start();
+	goToJenkins = db->construct({
+		db->line("Nathan", "Jenkins lives right down the road, I should visit him first.")
 	});
 
 	SceneManager::GetSceneManager()->AddScene(new DialogueScene(dialogue));
@@ -72,4 +81,16 @@ void IntroScene::update(float delta)
 	Scene::update(delta);
 
 	//check 
+	if (introDialogueDone)
+	{
+		Scene* list = new ListScene();
+		SceneManager::GetSceneManager()->AddScene(list);
+		SceneManager::GetSceneManager()->AddScene(new DialogueScene(goToJenkins));
+	}
+}
+
+
+void IntroScene::SwitchBackground()
+{
+	background->ChangeTexture("resources/images/intro_background_2.png");
 }
