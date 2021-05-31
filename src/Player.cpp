@@ -47,6 +47,7 @@ void Player::update(float delta)
 		interact();
 	}
 
+	parentScene->updatePlayerCoordinates(this->GetPosition());
 }
 
 void Player::interact()

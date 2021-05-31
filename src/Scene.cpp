@@ -161,3 +161,8 @@ void Scene::sortZ()
 {
 	std::sort(all_objects.begin(), all_objects.end(), GameObject::CompareZ);
 }
+
+void Scene::updatePlayerCoordinates(Vector2 coordinates)
+{
+	camera.target = (coordinates + (camera.target * 9)) / 10;
+}

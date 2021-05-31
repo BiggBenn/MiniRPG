@@ -49,6 +49,9 @@ public:
 	//returns objects who's position is within range of the given coordinates
 	//if this is slow, implement SQS system from your other repo, but since this small game won't have more than a hundred or so objects and only the player will really ask for nearby objects, naive should be ok
 	void GetNearbyObjects(Vector2 coordinates, float range, std::vector<GameObject*>* outputVector);
+
+	//lets the player object hand its coordinates back to the scene, so it can set the camera to follow or whatever
+	void updatePlayerCoordinates(Vector2 coordinates);
 };
 
 #endif
