@@ -4,7 +4,7 @@
 Player::Player(Scene* owner) : GameObject()
 {
 	parentScene = owner;
-	ChangeTexture("resources/player.png");
+	ChangeTexture("resources/player .png");
 	size = { 128,128 };
 	collider.type = ColliderType::Circle;
 	collider.radius = 64;
@@ -14,6 +14,8 @@ void Player::update(float delta)
 {
 	//Movement
 	Vector2 direction = { 0,0 };
+	
+
 	if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT))
 	{
 		direction = direction + Vector2Left();
@@ -31,9 +33,18 @@ void Player::update(float delta)
 		direction = direction + Vector2Down();
 	}
 
+	
+
 	if (direction != Vector2Zero())
 	{
 		direction = Vector2Normalize(direction);
+
+		if (IsKeyDown(KEY_LEFT_SHIFT) || IsKeyDown(KEY_RIGHT_SHIFT))
+		{
+			//sprint, i.e. go 1.5 times as fast
+			direction = direction * 1.5;
+		}
+
 		position = position + direction * speed * delta;
 		rotation = Vector2Angle(Vector2Up(), direction);
 	}

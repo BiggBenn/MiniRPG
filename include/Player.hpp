@@ -15,7 +15,7 @@ class Player : public GameObject
 {
 protected:
 	//speed player moves at in pixels/second
-	float speed = 100;
+	float speed = 175;
 
 	//
 	float interactionRange = 50;
