@@ -125,8 +125,7 @@ void Scene::update(float delta)
 
 	if (sortVector)
 	{
-		//sort the vector by z
-		std::sort(all_objects.begin(), all_objects.end(), GameObject::CompareZ);
+		sortZ();
 	}
 }
 
@@ -156,4 +155,9 @@ void Scene::GetNearbyObjects(Vector2 coordinates, float range, std::vector<GameO
 			outputVector->push_back(gobj);
 		}
 	}
+}
+
+void Scene::sortZ()
+{
+	std::sort(all_objects.begin(), all_objects.end(), GameObject::CompareZ);
 }

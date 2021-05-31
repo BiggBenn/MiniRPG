@@ -26,6 +26,9 @@ protected:
 	//Raylib camera
 	Camera2D camera = { 0 };
 
+	//sort all objects based on their z value
+	void sortZ();
+
 public:
 
 	//constructor
