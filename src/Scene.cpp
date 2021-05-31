@@ -164,5 +164,6 @@ void Scene::sortZ()
 
 void Scene::updatePlayerCoordinates(Vector2 coordinates)
 {
-	camera.target = (coordinates + (camera.target * 9)) / 10;
+	float smoothfactor = 15;
+	camera.target = (coordinates + (camera.target * (smoothfactor-1))) / smoothfactor;
 }
