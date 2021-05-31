@@ -1,7 +1,7 @@
 #include "scenes/IntroScene.hpp"
 
 #include "DialogueBuilder.hpp"
-#include "Scenes/ListScene.hpp"
+#include "scenes/ListScene.hpp"
 
 IntroScene::~IntroScene()
 {

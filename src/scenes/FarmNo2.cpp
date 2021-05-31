@@ -1,4 +1,4 @@
-#include "Scenes/FarmNo2.hpp"
+#include "scenes/FarmNo2.hpp"
 
 #include "ExitPoint.hpp"
 
