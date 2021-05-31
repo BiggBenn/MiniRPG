@@ -8,6 +8,7 @@
 #include "Scene.hpp"
 #include "scenes/IntroScene.hpp"
 #include "SceneManager.hpp"
+#include "StoryProgress.hpp"
 
 int main(void)
 {
@@ -20,6 +21,11 @@ int main(void)
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
+    for (int i = 0; i < 10; i++)
+    {
+        StoryProgress::farmsVisited[i] = false;
+    }
+
     SceneManager* scenes = SceneManager::GetSceneManager();
     scenes->AddScene( new IntroScene());
 
