@@ -51,14 +51,21 @@ void FarmNo1::Initialize()
 	player->SetZ(50);
 	all_objects.push_back(player);
 
-	bool hideMechanical = true;
+	bool hideMechanical = false;
 
 	//spawn exit point
 	ExitPoint* point = new ExitPoint();
 	all_objects.push_back(point);
-	point->SetPosition({ -200, 0 });
+	point->SetPosition({ -650, 800 });
 	if (hideMechanical)
 		point->AddFlags(TypeFlag::Invisible);
+
+	//spawn exit point
+	ExitPoint* point2 = new ExitPoint();
+	all_objects.push_back(point2);
+	point2->SetPosition({ -650, -800 });
+	if (hideMechanical)
+		point2->AddFlags(TypeFlag::Invisible);
 
 	//create colliders
 	GameObject* A1 = new GameObject();
