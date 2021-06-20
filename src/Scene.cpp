@@ -136,7 +136,10 @@ void Scene::draw()
 
 	for (GameObject* obj : all_objects)
 	{
-		obj->draw();
+		if (!obj->CheckFlags(TypeFlag::Invisible))
+		{
+			obj->draw();
+		}
 	}
 
 	EndMode2D();

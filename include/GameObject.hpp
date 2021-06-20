@@ -98,6 +98,8 @@ public:
 
 	//checks whether this object has the flags requested
 	bool CheckFlags(uint8_t flags);
+	void AddFlags(uint8_t flags);
+	void RemoveFlags(uint8_t flags);
 
 	//Getset for collider
 	Collider GetCollider();
