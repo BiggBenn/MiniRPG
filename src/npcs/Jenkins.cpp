@@ -7,7 +7,7 @@ Jenkins::Jenkins()
 {
 	//set basic stuff
 	typeFlags |= TypeFlag::Interactable;
-	SetSize({ 30,30 });
+	SetSize({ 128,128 });
 
 	//load textures
 	ChangeTexture("npcs/Jenkins/overworld.png");

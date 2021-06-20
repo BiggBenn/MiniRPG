@@ -11,7 +11,7 @@ Scene::Scene()
 	//set up the camera
 	camera.offset = { GetScreenWidth() / 2.0f, GetScreenHeight() / 2.0f };
 	camera.target = { 0,0 };
-	camera.zoom = 1;
+	camera.zoom = 0.65;
 
 }
 

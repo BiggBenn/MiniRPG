@@ -86,6 +86,16 @@ bool GameObject::CheckFlags(uint8_t flags)
 	return typeFlags & flags;
 }
 
+void GameObject::AddFlags(uint8_t flags)
+{
+	typeFlags |= flags;
+}
+
+void GameObject::RemoveFlags(uint8_t flags)
+{
+	typeFlags &= 0 - flags;
+}
+
 Collider GameObject::GetCollider()
 {
 	return collider;

@@ -15,7 +15,7 @@ namespace StoryProgress
 	*			#2 Ol' Rick -- Forgot about festival and will only come if the player visited -- Homestead -- provides music (Banjo, harmonica)
 	*			#3 Billy Bob -- requires help collecting eggs before he can go to the festival -- Ranch -- provides a big cake -- will not come at all if the player doesnt visit
 	*			#4 Miller -- will come either way -- Flour Mill -- provides bread
-	*			#5 Francine -- Needs help pulling weeds from her field -- Farm -- provides vegetable stew
+	*			#5 Francine -- Needs help pulling weeds from her field -- Farm -- provides vegetable stew if player helps, comes either way
 	*			#6 Alexander -- will come either way -- Homestead -- provides lighting
 	*			#7 Theodore Richards -- forgot about the festival -- Flower garden -- provides decorative flowers and banners
 	*			#8 Shepherd Christian -- Needs player to find his sheepdog -- Pasture -- provides cheese 

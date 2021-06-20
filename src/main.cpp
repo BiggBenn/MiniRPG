@@ -10,6 +10,8 @@
 #include "SceneManager.hpp"
 #include "StoryProgress.hpp"
 
+#include "scenes/FarmNo1.hpp"
+
 int main(void)
 {
     // Initialization
@@ -27,7 +29,7 @@ int main(void)
     }
 
     SceneManager* scenes = SceneManager::GetSceneManager();
-    scenes->AddScene( new IntroScene());
+    scenes->AddScene( new FarmNo1());
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
